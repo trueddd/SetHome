@@ -1,0 +1,10 @@
+main: me.downthepark.sethome.SetHome
+name: SetHome
+version: 1.5
+description: A plugin which easily sets a player's home.
+commands:
+  sethome:
+    description: Set your home
+  home:
+    description:
+      Go to your set home
