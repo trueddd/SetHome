@@ -12,9 +12,9 @@ This is great for Survival servers that need something simple and lightweight. S
 
 Commands:
 
-- /sethome
+/sethome
 
-- /home
+/home
 
 Permissions:
 
