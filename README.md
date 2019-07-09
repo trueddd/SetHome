@@ -21,6 +21,6 @@ This is great for Survival servers that need something simple and lightweight. S
 - None required 
 
 ### Extra Features:
-    Respawn player to their home saved in "Homes.yml" (Can be disabled in 'config.yml' file)
-    Play an enderman sound when player teleports to their home (Can be disabled in 'config.yml' file)
-    Customize messages under the 'config.yml' file
+Respawn player to their home saved in "Homes.yml" (Can be disabled in 'config.yml' file)
+Play an enderman sound when player teleports to their home (Can be disabled in 'config.yml' file)
+Customize messages under the 'config.yml' file
