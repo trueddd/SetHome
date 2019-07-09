@@ -19,19 +19,26 @@ public class SetHomeEvents implements Listener {
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
 
+        SetHomeUtils utils = new SetHomeUtils(plugin);
+
         if (event.getPlayer().getBedSpawnLocation() != null) {
-            if (plugin.config.getBoolean("debug")) {
+            if (plugin.getConfig().getBoolean("debug")) {
                 plugin.getLogger().log(Level.WARNING, "Player " + event.getPlayer().getName() + " already has a bed location. Not teleporting to 'set home'.");
             }
-        } else if (plugin.config.getBoolean("respawn-player-at-home")) {
+        } else if (plugin.getConfig().getBoolean("respawn-player-at-home")) {
 
-            event.setRespawnLocation(new Location(Bukkit.getWorld(plugin.homes.getString("Homes." + event.getPlayer().getUniqueId().toString() + ".World")),
-                    plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".X"),
-                    plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".Y"),
-                    plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".Z"),
-                    plugin.homes.getLong("Homes." + event.getPlayer().getUniqueId().toString() + ".Yaw"),
-                    plugin.homes.getLong("Homes." + event.getPlayer().getUniqueId().toString() + ".Pitch"))
-            );
+            if (utils.homeIsNull(event.getPlayer())) {
+                return;
+            } else {
+                event.setRespawnLocation(new Location(Bukkit.getWorld(plugin.homes.getString("Homes." + event.getPlayer().getUniqueId().toString() + ".World")),
+                        plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".X"),
+                        plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".Y"),
+                        plugin.homes.getDouble("Homes." + event.getPlayer().getUniqueId().toString() + ".Z"),
+                        plugin.homes.getLong("Homes." + event.getPlayer().getUniqueId().toString() + ".Yaw"),
+                        plugin.homes.getLong("Homes." + event.getPlayer().getUniqueId().toString() + ".Pitch"))
+                );
+            }
+
         }
     }
 }
