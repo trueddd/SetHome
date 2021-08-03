@@ -99,6 +99,14 @@ public class SetHome extends JavaPlugin { // --- SetHome is a JavaPlugin (Bukkit
                     }
                 }
             }
+        } else if (command.getName().equals("sethomefor")) {
+            String playerName = args[0];
+            Player player = getServer().getPlayer(playerName);
+            if (player != null) {
+                setPlayerHome(player);
+            } else {
+                sender.sendMessage("No player found with name " + playerName);
+            }
         }
 
         return false;
@@ -147,7 +155,7 @@ public class SetHome extends JavaPlugin { // --- SetHome is a JavaPlugin (Bukkit
     void sendPlayerHome(Player player) {
         utils.sendHome(player);
         if (config.getBoolean("play-warp-sound")) {
-            player.playSound(utils.getHomeLocation(player), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
+            player.playSound(utils.getHomeLocation(player), Sound.ENTITY_ENDERMEN_TELEPORT, 1, 1);
         }
         String strFormatted = config.getString("teleport-message").replace("%player%", player.getDisplayName());
         if (config.getBoolean("show-teleport-message")) {

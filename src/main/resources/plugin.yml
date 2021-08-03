@@ -7,3 +7,11 @@ commands:
     description: Set your home
   home:
     description: Warp to your home
+  sethomefor:
+    description: sets home for player
+    permission: sethome.op
+    usage: /sethomefor [player]
+permissions:
+  sethome.op:
+    description: admin
+    default: op
